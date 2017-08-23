@@ -12,21 +12,20 @@ var ButtonToolbar = ReactBootstrap.ButtonToolbar;
 var Modal = ReactBootstrap.Modal;
 
 export const recipes = (typeof localStorage['recipeBook'] !== 'undefined' || localStorage['recipeBook'] === "") ? JSON.parse(localStorage['recipeBook']) : [{title:"Pizza",ingredients:['tomato','dough','cheese']},{title:'Apple Pie',ingredients:['apples','pie crust','other pie stuff']},{title:'Apple Juice',ingredients:['apples','sugar','water']}];
-
-localStorage.clear()
+// localStorage.clear()
 
 populateStorage();
 
 class App extends React.Component {
   constructor(){
     super()
-    this.state = { showModal:false,isModalOpen: false, titleValue:"",ingredientsValue:'',mode:'Add'}
+    this.state = { showModal:false,titleValue:"",ingredientsValue:'',mode:'Add'}
   }
   openModal() {
-    this.setState({ isModalOpen: true, showModal:true })
+    this.setState({ showModal:true })
   }
   closeModal() {
-    this.setState({ isModalOpen: false, showModal:false })
+    this.setState({ showModal:false })
   }
   add(){
     var title = document.getElementById('title').value
